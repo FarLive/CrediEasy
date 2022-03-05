@@ -7,7 +7,7 @@
             "label": "JC",
             "command": "java",
             "windows":{
-                "command": "C:\\Program Files\\Java\\jdk1.8.0_201\\bin\\javac.exe"
+                "command": "C:\\Program Files\\Java\\jdk1.8.0_281\\bin\\javac.exe"
             },
             "args": [
                 "${file}"
@@ -17,7 +17,7 @@
             "label": "JR",
             "command": "java",
             "windows":{
-                "command": "C:\\Program Files\\Java\\jdk1.8.0_201\\bin\\java.exe"
+                "command": "C:\\Program Files\\Java\\jdk1.8.0_281\\bin\\java.exe"
             },
             "args": [
                 "${fileBasenameNoExtension}"
