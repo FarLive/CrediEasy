@@ -1,14 +1,15 @@
 package com.farlive.masterproject;
 
-/*import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;*/
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class MasterprojectApplication {
 
 	public static void main(String[] args) {
-		Launcher.launch(Launcher.class, args);
-//		SpringApplication.run(MasterprojectApplication.class, args);
+		//Launcher.launch(Launcher.class, args);	
+		SpringApplication.run(MasterprojectApplication.class, args);
+		System.out.println("Hola mundo");
 	}
 
 }
