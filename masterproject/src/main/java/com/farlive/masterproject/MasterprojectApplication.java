@@ -6,10 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MasterprojectApplication {
 
+	public native void conectar();
+
 	public static void main(String[] args) {
 		//Launcher.launch(Launcher.class, args);	
 		SpringApplication.run(MasterprojectApplication.class, args);
 		System.out.println("Hola mundo");
 	}
-
+	
 }
