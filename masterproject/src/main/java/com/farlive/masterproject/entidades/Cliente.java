@@ -1,14 +1,10 @@
 package com.farlive.masterproject.entidades;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,20 +28,25 @@ public class Cliente {
     @Column(name = "Correo")
     private String correo;
 
-    
+    @Column(name = "Usuario")
+    private String usuario;
+
+    @Column(name = "Contrasena")
+    private String contrasena;
+
 
     public Cliente() {
     }
 
-
-    public Cliente(int id, String nombre, String direccion, String telefono, String correo) {
+    public Cliente(int id, String nombre, String direccion, String telefono, String correo, String usuario, String contrasena) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
     }
-    
 
     public int getId() {
         return this.id;
@@ -86,5 +87,22 @@ public class Cliente {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public String getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return this.contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
 
 }

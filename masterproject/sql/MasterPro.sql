@@ -3,10 +3,12 @@ use Banco;
 CREATE TABLE Clientes
 (
   Nombre VARCHAR(64) NOT NULL,
+  Usuario VARCHAR(50) NOT NULL,
+  Contrasena VARCHAR(20) NOT NULL,
   Direccion VARCHAR(50) NOT NULL,
   Telefono VARCHAR(10) NOT NULL,
   Correo VARCHAR(50) NOT NULL,
-  ID_Cliente INT NOT NULL,
+  ID_Cliente INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (ID_Cliente)
 );
 
@@ -16,7 +18,7 @@ CREATE TABLE Tarjetas_de_credito
   Id_TarjetaCredito INT NOT NULL,
   Fecha_Expiracion DATE NOT NULL,
   CVV INT NOT NULL,
-  ID_Cliente INT NOT NULL,
+  ID_Cliente INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (Num_Tarjeta),
   FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente),
   UNIQUE (Id_TarjetaCredito),
