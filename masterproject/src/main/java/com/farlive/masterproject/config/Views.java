@@ -12,7 +12,7 @@ public enum Views implements Fxml{
 
         @Override
         public String getTitle(){
-            return "Inicio de sesion";
+            return "Banco ElAbarrotero";
         }
     }
         

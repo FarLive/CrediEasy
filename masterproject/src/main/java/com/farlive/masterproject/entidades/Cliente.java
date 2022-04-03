@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "Clientes")
 public class Cliente {
     // (name="Cliente")
-    @Column(name = "ID_Cliente")    // Mapeo
+    @Column(name = "Id_Cliente")    // Mapeo
     @Id                                                     // Llave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // Autoincrementable
     private int id;

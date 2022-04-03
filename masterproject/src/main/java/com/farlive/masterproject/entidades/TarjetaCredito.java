@@ -32,7 +32,7 @@ public class TarjetaCredito {
     private int CVV;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_Cliente")
+    @JoinColumn(name = "Id_Cliente")
     private List <Cliente> clientes = new ArrayList<>();
 
 

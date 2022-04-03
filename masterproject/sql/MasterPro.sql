@@ -8,19 +8,19 @@ CREATE TABLE Clientes
   Direccion VARCHAR(50) NOT NULL,
   Telefono VARCHAR(10) NOT NULL,
   Correo VARCHAR(50) NOT NULL,
-  ID_Cliente INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (ID_Cliente)
+  Id_Cliente INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Id_Cliente)
 );
 
 CREATE TABLE Tarjetas_de_credito
 (
-  Num_Tarjeta INT NOT NULL,
   Id_TarjetaCredito INT NOT NULL,
+  Num_Tarjeta INT NOT NULL,
   Fecha_Expiracion DATE NOT NULL,
   CVV INT NOT NULL,
-  ID_Cliente INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (Num_Tarjeta),
-  FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente),
+  Id_Cliente INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Id_TarjetaCredito),
+  FOREIGN KEY (Id_Cliente) REFERENCES Clientes(Id_Cliente),
   UNIQUE (Id_TarjetaCredito),
   UNIQUE (Fecha_Expiracion),
   UNIQUE (CVV)
@@ -52,11 +52,21 @@ CREATE TABLE Tarjeta_Platino
 
 CREATE TABLE Administrador
 (
-  ID_Admin INT NOT NULL,
+  Id_Admin INT NOT NULL,
   Nombre VARCHAR(64) NOT NULL,
   Direccion VARCHAR(50) NOT NULL,
   Telefono VARCHAR(10) NOT NULL,
   Correo VARCHAR(50) NOT NULL,
   Fecha_Registro DATE NOT NULL,
-  PRIMARY KEY (ID_Admin)
+  PRIMARY KEY (Id_Admin)
 );
+
+CREATE TABLE Gestiona
+(
+  Tarjetas_de_credito_Id_TarjetaCredito INT NOT NULL,
+  Administrador_Id_Admin INT NOT NULL,
+  PRIMARY KEY (Tarjetas_de_credito_Id_TarjetaCredito, Administrador_Id_Admin),
+  FOREIGN KEY (Tarjetas_de_credito_Id_TarjetaCredito) 
+  REFERENCES Tarjetas_de_credito (Id_TarjetaCredito),
+  FOREIGN KEY (Administrador_Id_admin) REFERENCES Administrador (Id_Admin)
+)
