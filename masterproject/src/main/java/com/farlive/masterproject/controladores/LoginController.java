@@ -66,18 +66,16 @@ public class LoginController implements Initializable {
             String ruta = rutaGuardarPDF();
             if(ruta == null) return;
 
-            if(LoginController.class.getResource("\\python\\consulta.py").toExternalForm()==null) {
-                System.out.println("alo");
-                return;
-            }else System.out.println("si encontro");
+            if(LoginController.class.getResource("/python/consulta.py").toExternalForm().isEmpty()) return; 
+
+            System.out.println(ruta);
 
             try{
-                String[] args1 = new String[]{ "python", LoginController.class.getResource("\\python\\consulta.py").toExternalForm(), ruta};
-                proceso = Runtime.getRuntime().exec(args1);
-                proceso.waitFor();
-                
-            } catch(InterruptedException | IOException e ){
-                
+                ProcessBuilder processBuilder = new ProcessBuilder("python", LoginController.class.getResource("/python/consulta.py").toExternalForm(), ruta);
+                processBuilder.start();
+                System.out.println("Proceso terminado!!!");
+            } catch(IOException e ){
+                e.printStackTrace();
             }   
 
         }
