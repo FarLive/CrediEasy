@@ -1,10 +1,13 @@
 package com.farlive.masterproject.controladores;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.farlive.masterproject.service.ClienteService;
 import com.kwms.core.alert.Alert;
+import com.kwms.core.managent.SceneManagent;
 import com.kwms.core.validation.FieldValidator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 
 @Controller
 public class LoginController implements Initializable {
@@ -56,7 +61,25 @@ public class LoginController implements Initializable {
     @FXML
     void loginAction(ActionEvent event) {
         if(!FieldValidator.areEmpty(true, username, password) && clienteService.existeUsuario(username.getText(), password.getText())) {
-            System.out.println("Cambie de vista");
+
+            Process proceso;
+            String ruta = rutaGuardarPDF();
+            if(ruta == null) return;
+
+            if(LoginController.class.getResource("\\python\\consulta.py").toExternalForm()==null) {
+                System.out.println("alo");
+                return;
+            }else System.out.println("si encontro");
+
+            try{
+                String[] args1 = new String[]{ "python", LoginController.class.getResource("\\python\\consulta.py").toExternalForm(), ruta};
+                proceso = Runtime.getRuntime().exec(args1);
+                proceso.waitFor();
+                
+            } catch(InterruptedException | IOException e ){
+                
+            }   
+
         }
         
         
@@ -64,6 +87,14 @@ public class LoginController implements Initializable {
         
         //Alert.success("Alerta", "Hola");
 
+    }
+
+    private String rutaGuardarPDF() {
+        DirectoryChooser directorio = new DirectoryChooser();
+        File file = directorio.showDialog(SceneManagent.getInstance().getStage());
+        if(file == null)
+            return null;
+        return file.isDirectory() ? file.getAbsolutePath() : null;
     }
 
     @FXML
