@@ -105,4 +105,17 @@ public class Cliente {
     }
 
 
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", nombre='" + getNombre() + "'" +
+            ", direccion='" + getDireccion() + "'" +
+            ", telefono='" + getTelefono() + "'" +
+            ", correo='" + getCorreo() + "'" +
+            ", usuario='" + getUsuario() + "'" +
+            ", contrasena='" + getContrasena() + "'" +
+            "}";
+    }
+
 }

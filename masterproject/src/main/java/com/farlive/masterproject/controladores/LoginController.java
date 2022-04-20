@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 
 import com.farlive.masterproject.service.ClienteService;
 import com.kwms.core.alert.Alert;
@@ -28,8 +29,6 @@ import javafx.stage.FileChooser;
 
 @Controller
 public class LoginController implements Initializable {
-
-     
 
     @FXML
     private HBox box_password;
@@ -61,7 +60,10 @@ public class LoginController implements Initializable {
 
     @FXML
     void loginAction(ActionEvent event) {
-        if(!FieldValidator.areEmpty(true, username, password) && clienteService.existeUsuario(username.getText(), password.getText())) {
+        
+        Stream.of(clienteService.getAllCustomers()).forEach(System.out::println);
+        
+        /*if(!FieldValidator.areEmpty(true, username, password) && clienteService.existeUsuario(username.getText(), password.getText())) {
 
             Process proceso;
             String ruta = rutaGuardarPDF();
@@ -70,7 +72,7 @@ public class LoginController implements Initializable {
             PythonInterpreter interpreter = new PythonInterpreter();
             interpreter.execfile(LoginController.class.getResourceAsStream("/python/consulta.py"));
             interpreter.eval("consultas("+ruta+")");
-        }
+        }*/
         
         
         //FieldValidator.addValidationMessage(username);
