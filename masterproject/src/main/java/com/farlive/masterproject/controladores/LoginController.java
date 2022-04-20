@@ -10,6 +10,7 @@ import com.kwms.core.alert.Alert;
 import com.kwms.core.managent.SceneManagent;
 import com.kwms.core.validation.FieldValidator;
 
+import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -66,18 +67,9 @@ public class LoginController implements Initializable {
             String ruta = rutaGuardarPDF();
             if(ruta == null) return;
 
-            if(LoginController.class.getResource("/python/consulta.py").toExternalForm().isEmpty()) return; 
-
-            System.out.println(ruta);
-
-            try{
-                ProcessBuilder processBuilder = new ProcessBuilder("python", LoginController.class.getResource("/python/consulta.py").toExternalForm(), ruta);
-                processBuilder.start();
-                System.out.println("Proceso terminado!!!");
-            } catch(IOException e ){
-                e.printStackTrace();
-            }   
-
+            PythonInterpreter interpreter = new PythonInterpreter();
+            interpreter.execfile(LoginController.class.getResourceAsStream("/python/consulta.py"));
+            interpreter.eval("consultas("+ruta+")");
         }
         
         
