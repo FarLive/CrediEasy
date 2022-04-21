@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 
-<StackPane prefHeight="601.0" prefWidth="1004.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.farlive.masterproject.controladores.LoginController">
+<StackPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.farlive.masterproject.controladores.LoginController">
    <padding>
       <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
    </padding>

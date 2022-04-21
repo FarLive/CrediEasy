@@ -14,8 +14,21 @@ public enum Views implements Fxml{
         public String getTitle(){
             return "Banco ElAbarrotero";
         }
-    }
+    },
+
+    SIGNUP{
+        @Override
+        public String getPath(){
+            return "/fxml/SignUp.fxml";
+        }
+
+        @Override
+        public String getTitle(){
+            return "Registro";
+        }
+
         
+    }
     ;
 
     @Override

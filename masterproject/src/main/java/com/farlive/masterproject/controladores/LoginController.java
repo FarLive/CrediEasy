@@ -63,16 +63,16 @@ public class LoginController implements Initializable {
         
         Stream.of(clienteService.getAllCustomers()).forEach(System.out::println);
         
-        /*if(!FieldValidator.areEmpty(true, username, password) && clienteService.existeUsuario(username.getText(), password.getText())) {
+        if(!FieldValidator.areEmpty(true, username, password) && clienteService.existeUsuario(username.getText(), password.getText())) {
 
-            Process proceso;
+            /* Process proceso;
             String ruta = rutaGuardarPDF();
             if(ruta == null) return;
 
             PythonInterpreter interpreter = new PythonInterpreter();
             interpreter.execfile(LoginController.class.getResourceAsStream("/python/consulta.py"));
-            interpreter.eval("consultas("+ruta+")");
-        }*/
+            interpreter.eval("consultas("+ruta+")"); */
+        }
         
         
         //FieldValidator.addValidationMessage(username);
