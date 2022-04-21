@@ -2,87 +2,86 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
-
 
 <StackPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.farlive.masterproject.controladores.SignUpController">
    <children>
       <AnchorPane fx:id="registerClientPane" prefHeight="700.0" prefWidth="800.0" StackPane.alignment="CENTER">
-         <HBox layoutX="155.0" layoutY="105.0" prefHeight="100.0" prefWidth="490.0" AnchorPane.topAnchor="105.0">
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <children>
-                     <JFXTextField fx:id="firstNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Full Name">
+               <Label prefHeight="45.0" prefWidth="126.0" text="Register" textFill="#3c58fa">
                   <font>
-                     <Font size="18.0" />
+                     <Font size="30.0" />
                   </font>
+               </Label>
+               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="490.0">
+                  <children>
+                           <JFXTextField fx:id="fullNameField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Full Name">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                           </JFXTextField>
+                  </children>
+               </HBox>
+               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="490.0">
+                  <children>
+                           <JFXTextField fx:id="userNameField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Username">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                           </JFXTextField>
+                  </children>
+               </HBox>
+               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="490.0">
+                  <children>
+                           <JFXTextField fx:id="emailField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Email">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                           </JFXTextField>
+                  </children>
+               </HBox>
+               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="490.0">
+                  <children>
+                     <JFXTextField fx:id="passwordField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Password">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
                      </JFXTextField>
-            </children>
-         </HBox>
-         <HBox layoutX="155.0" layoutY="177.0" prefHeight="100.0" prefWidth="490.0">
-            <children>
-                     <JFXTextField fx:id="lastNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Username">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
+                  </children>
+               </HBox>
+               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="490.0">
+                  <children>
+                     <JFXTextField fx:id="phoneField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="PhoneNumber">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
                      </JFXTextField>
-            </children>
-         </HBox>
-         <HBox layoutX="155.0" layoutY="250.0" prefHeight="100.0" prefWidth="490.0">
-            <children>
-                     <JFXTextField fx:id="socialSecurityField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Email">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
+                  </children>
+               </HBox>
+               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="490.0">
+                  <children>
+                     <JFXTextField fx:id="addressField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Address">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
                      </JFXTextField>
-            </children>
-         </HBox>
-         <HBox layoutX="155.0" layoutY="325.0" prefHeight="100.0" prefWidth="490.0">
-            <children>
-               <JFXTextField fx:id="socialSecurityField1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Password">
+                  </children>
+               </HBox>
+                     <JFXButton buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#createNewAccount" prefHeight="60.0" prefWidth="240.0" stylesheets="@../css/stylesheet.css" text="Submit" textFill="WHITE">
                   <font>
                      <Font size="18.0" />
                   </font>
-               </JFXTextField>
+               </JFXButton>
             </children>
-         </HBox>
-               <JFXButton layoutX="280.0" layoutY="557.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#createNewAccount" prefHeight="60.0" prefWidth="240.0" text="Submit" textFill="WHITE">
-            <font>
-               <Font size="18.0" />
-            </font>
-            <stylesheets>
-               <URL value="@stylesheet.css" />
-               <URL value="@../css/stylesheet.css" />
-            </stylesheets>
-         </JFXButton>
-         <Label layoutX="337.0" layoutY="41.0" prefHeight="45.0" prefWidth="126.0" text="Register" textFill="#3c58fa">
-            <font>
-               <Font size="30.0" />
-            </font>
-         </Label>
-         <HBox layoutX="155.0" layoutY="393.0" prefHeight="100.0" prefWidth="490.0">
-            <children>
-               <JFXTextField fx:id="socialSecurityField12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="PhoneNumber">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
-               </JFXTextField>
-            </children>
-         </HBox>
-         <HBox layoutX="155.0" layoutY="463.0" prefHeight="100.0" prefWidth="490.0">
-            <children>
-               <JFXTextField fx:id="socialSecurityField121" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="490.0" promptText="Address">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
-               </JFXTextField>
-            </children>
-         </HBox>
+         </VBox>
          <Hyperlink alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="603.0" layoutY="651.0" onMouseClicked="#switchCreate" text="Sign in with your account">
             <graphic>
                <SVGPath content="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" />

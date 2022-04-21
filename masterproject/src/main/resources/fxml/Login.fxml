@@ -111,13 +111,9 @@
    </children>
    <stylesheets>
       <URL value="@../css/bootstrap.css" />
-      <URL value="@../css/helpers.css" />
       <URL value="@../css/light.css" />
       <URL value="@../css/login.css" />
-      <URL value="@../css/master.css" />
       <URL value="@../css/material-color.css" />
-      <URL value="@../css/shape.css" />
       <URL value="@../css/skeleton.css" />
-      <URL value="@../css/typographic.css" />
    </stylesheets>
 </StackPane>

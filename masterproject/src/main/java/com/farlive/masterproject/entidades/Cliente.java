@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.kwms.core.annotation.SuperEntity;
+
 @Entity
 @Table(name = "Clientes")
-public class Cliente {
+public class Cliente implements SuperEntity {
     // (name="Cliente")
     @Column(name = "Id_Cliente")    // Mapeo
     @Id                                                     // Llave primaria

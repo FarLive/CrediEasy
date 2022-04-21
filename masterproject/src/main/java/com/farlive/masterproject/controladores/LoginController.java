@@ -1,17 +1,15 @@
 package com.farlive.masterproject.controladores;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.stream.Stream;
 
+import com.farlive.masterproject.config.Views;
 import com.farlive.masterproject.service.ClienteService;
 import com.kwms.core.alert.Alert;
 import com.kwms.core.managent.SceneManagent;
 import com.kwms.core.validation.FieldValidator;
 
-import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -25,7 +23,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 
 @Controller
 public class LoginController implements Initializable {
@@ -57,28 +54,19 @@ public class LoginController implements Initializable {
     @Autowired
     private ClienteService clienteService;
 
+    private SceneManagent sceneManagent;
 
     @FXML
     void loginAction(ActionEvent event) {
-        
-        Stream.of(clienteService.getAllCustomers()).forEach(System.out::println);
-        
-        if(!FieldValidator.areEmpty(true, username, password) && clienteService.existeUsuario(username.getText(), password.getText())) {
-
-            /* Process proceso;
-            String ruta = rutaGuardarPDF();
-            if(ruta == null) return;
-
-            PythonInterpreter interpreter = new PythonInterpreter();
-            interpreter.execfile(LoginController.class.getResourceAsStream("/python/consulta.py"));
-            interpreter.eval("consultas("+ruta+")"); */
+        if(!FieldValidator.areEmpty(true, username, password)) {
+            if(!clienteService.findByUsuario(username.getText()))
+                Alert.warning("El usuario no existe", "Crea una nueva cuenta!!!");
+            else {
+                if(clienteService.existeUsuario(username.getText(), password.getText())) {
+                    sceneManagent.changeScene(Views.MENU);
+                }else Alert.error("Contraseña incorrecta", "Verifique su contraseña o cambiela si es que la olvido");
+            }
         }
-        
-        
-        //FieldValidator.addValidationMessage(username);
-        
-        //Alert.success("Alerta", "Hola");
-
     }
 
     private String rutaGuardarPDF() {
@@ -91,13 +79,12 @@ public class LoginController implements Initializable {
 
     @FXML
     void switchCreate(MouseEvent event) {
-
+        sceneManagent.changeScene(Views.SIGNUP);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-        
+        sceneManagent = SceneManagent.getInstance();
     }
 
 }

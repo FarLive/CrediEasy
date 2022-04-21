@@ -4,7 +4,6 @@ import com.farlive.masterproject.config.Views;
 import com.kwms.core.managent.Fxml;
 import com.kwms.core.managent.Loader;
 import com.kwms.core.managent.SceneManagent;
-import com.kwms.core.threadpool.Executor;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -12,7 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Launcher extends Application {
@@ -21,9 +19,7 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        SceneManagent.getInstance().createStage(Views.LOGIN).show();
-        //SceneManagent.getInstance().changeScene(Views.SIGNUP);
-        
+        SceneManagent.getInstance().createStage(Views.MENU).show();
     }
 
     @Override

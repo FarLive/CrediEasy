@@ -25,11 +25,35 @@ public enum Views implements Fxml{
         @Override
         public String getTitle(){
             return "Registro";
+        }        
+    },
+
+    MENU {
+
+        @Override
+        public String getPath() {
+            return "/fxml/Menu.fxml";
         }
 
+        @Override
+        public String getTitle() {
+            return "Menu";
+        }
+
+    },
+
+    CREDIT_CARD {
+        @Override
+        public String getPath() {
+            return "/fxml/CreditCard.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Tarjeta de credito";
+        }
         
-    }
-    ;
+    };
 
     @Override
     public abstract String getPath();

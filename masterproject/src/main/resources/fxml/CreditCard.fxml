@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="285.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@../css/credit-card-template.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.farlive.masterproject.controladores.CreditCardController">
+   <children>
+      <VBox fx:id="subroot" maxHeight="145.0" maxWidth="265.0" minHeight="145.0" minWidth="265.0" prefHeight="145.0" prefWidth="265.0" styleClass="sub-root">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="265.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Visa Classic">
+                     <font>
+                        <Font name="Candara" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN">
+                           <color>
+                              <Color red="0.9210526347160339" green="0.9210526347160339" blue="0.9210526347160339" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="265.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/chip.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="265.0">
+               <children>
+                  <HBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1234" textAlignment="CENTER">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="0.91" specularConstant="1.39" specularExponent="3.5" surfaceScale="2.0">
+                                 <bumpInput>
+                                    <DropShadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1234" textAlignment="CENTER">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="0.91" specularConstant="1.39" specularExponent="3.5" surfaceScale="2.0">
+                                 <bumpInput>
+                                    <DropShadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1234" textAlignment="CENTER">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="0.91" specularConstant="1.39" specularExponent="3.5" surfaceScale="2.0">
+                                 <bumpInput>
+                                    <DropShadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="112.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1234" textAlignment="CENTER">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="1.05" specularConstant="2.0" specularExponent="3.5" surfaceScale="2.0">
+                                 <bumpInput>
+                                    <DropShadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="265.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevin Williams" textAlignment="CENTER">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="0.91" specularConstant="1.39" specularExponent="3.5">
+                                 <bumpInput>
+                                    <DropShadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="124.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="20/24" textAlignment="CENTER">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="0.91" specularConstant="1.39" specularExponent="3.5" surfaceScale="2.0">
+                                 <bumpInput>
+                                    <DropShadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</StackPane>

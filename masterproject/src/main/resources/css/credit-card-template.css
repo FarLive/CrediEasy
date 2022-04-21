@@ -1,0 +1,5 @@
+.sub-root {
+    -fx-background-color: linear-gradient(to left, #1270B1, #179DCB);
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0.0, 0.0);
+}
