@@ -41,6 +41,20 @@ public enum Views implements Fxml{
         }
 
     },
+    
+    MENU_ADMIN {
+
+        @Override
+        public String getPath() {
+            return "/fxml/MenuAdmin.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Menu | Admin";
+        }
+
+    },
 
     CREDIT_CARD {
         @Override
