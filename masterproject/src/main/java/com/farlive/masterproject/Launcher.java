@@ -19,7 +19,7 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        SceneManagent.getInstance().createStage(Views.MENU).show();
+        SceneManagent.getInstance().createStage(Views.LOGIN).show();
     }
 
     @Override
