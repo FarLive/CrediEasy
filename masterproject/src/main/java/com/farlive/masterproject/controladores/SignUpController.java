@@ -1,6 +1,5 @@
 package com.farlive.masterproject.controladores;
 
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,7 +10,6 @@ import com.jfoenix.controls.JFXTextField;
 import com.kwms.core.alert.Alert;
 import com.kwms.core.annotation.SFXEntity;
 import com.kwms.core.control.SimpleEntityControl;
-import com.kwms.core.logger.NewEntityException;
 import com.kwms.core.managent.SceneManagent;
 import com.kwms.core.validation.FieldValidator;
 

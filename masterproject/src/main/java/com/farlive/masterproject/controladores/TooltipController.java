@@ -3,8 +3,6 @@ package com.farlive.masterproject.controladores;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.text.View;
-
 import com.farlive.masterproject.config.Views;
 import com.kwms.core.managent.SceneManagent;
 

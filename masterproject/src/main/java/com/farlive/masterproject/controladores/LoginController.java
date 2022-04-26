@@ -1,6 +1,5 @@
 package com.farlive.masterproject.controladores;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,7 +21,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.stage.DirectoryChooser;
 
 @Controller
 public class LoginController implements Initializable {
@@ -60,7 +58,7 @@ public class LoginController implements Initializable {
     void loginAction(ActionEvent event) {
         if(!FieldValidator.areEmpty(true, username, password)) {
             if(!clienteService.findByUsuario(username.getText()))
-                Alert.warning("El usuario no existe", "Crea una nueva cuenta!!!");
+                Alert.warning("El usuario no existe", "Crea una nueva cuenta");
             else {
                 if(clienteService.existeUsuario(username.getText(), password.getText())) {
                     sceneManagent.changeScene(Views.MENU);
@@ -69,13 +67,13 @@ public class LoginController implements Initializable {
         }
     }
 
-    private String rutaGuardarPDF() {
+    /* private String rutaGuardarPDF() {
         DirectoryChooser directorio = new DirectoryChooser();
         File file = directorio.showDialog(SceneManagent.getInstance().getStage());
         if(file == null)
             return null;
         return file.isDirectory() ? file.getAbsolutePath() : null;
-    }
+    } */
 
     @FXML
     void switchCreate(MouseEvent event) {
