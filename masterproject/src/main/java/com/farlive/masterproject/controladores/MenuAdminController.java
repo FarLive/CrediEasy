@@ -1,8 +1,6 @@
 package com.farlive.masterproject.controladores;
 
-import java.net.URI;
 import java.net.URL;
-import java.nio.file.Path;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -13,12 +11,9 @@ import com.kodedu.terminalfx.config.TerminalConfig; */
 
 import org.springframework.stereotype.Controller;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 
 @Controller
 public class MenuAdminController implements Initializable {

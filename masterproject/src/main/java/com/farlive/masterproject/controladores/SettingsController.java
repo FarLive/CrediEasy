@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import com.farlive.masterproject.entidades.Customer;
 import com.farlive.masterproject.entidades.Person;
-import com.farlive.masterproject.entidades.RoleType;
 import com.farlive.masterproject.entidades.User;
 import com.farlive.masterproject.service.service.CustomerService;
 import com.jfoenix.controls.JFXTextField;

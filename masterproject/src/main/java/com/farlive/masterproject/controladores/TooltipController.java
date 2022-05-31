@@ -1,15 +1,12 @@
 package com.farlive.masterproject.controladores;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
-import java.util.function.Predicate;
 
 import com.farlive.masterproject.config.Views;
 import com.jfoenix.controls.JFXButton;
 import com.kwms.core.managent.SceneManagent;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import javafx.fxml.FXML;
