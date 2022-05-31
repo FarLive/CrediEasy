@@ -19,10 +19,7 @@
 	
 	<!-- Add repository -->
 	<repositories>
-    	<repository>
-    		<id>terminalfx-repo</id>
-    		<url>https://github.com/javaterminal/terminalfx/raw/master/releases</url>
-    		</repository>
+    	
 	</repositories>
 
 	<dependencies>
@@ -44,13 +41,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
-		<dependency>
-    		<groupId>com.kodedu.terminalfx</groupId>
-    		<artifactId>terminalfx</artifactId>
-    		<version>1.0.8</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.kwms</groupId>
 			<artifactId>sfx</artifactId>
@@ -58,7 +48,12 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/SFX-1.0.jar</systemPath>
 		</dependency>
-
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx</artifactId>
+			<version>11</version>
+			<type>pom</type>
+		</dependency>		
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
@@ -99,14 +94,12 @@
 			<artifactId>AnimateFX</artifactId>
 			<version>1.2.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.python/jython -->
 		<dependency>
-    		<groupId>org.python</groupId>
-	    	<artifactId>jython-standalone</artifactId>
-    		<version>2.7.2</version>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    		<version>1.18.22</version>
+    		<scope>provided</scope>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.controlsfx/controlsfx -->
 		<dependency>
 			<groupId>org.controlsfx</groupId>
 			<artifactId>controlsfx</artifactId>
@@ -116,6 +109,11 @@
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
 			<version>0.10.2</version>
+		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx</artifactId>
+			<version>8.9</version>
 		</dependency>
 	</dependencies>
 

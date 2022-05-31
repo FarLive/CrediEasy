@@ -6,10 +6,10 @@ import java.nio.file.Path;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
-import com.kodedu.terminalfx.Terminal;
+/* import com.kodedu.terminalfx.Terminal;
 import com.kodedu.terminalfx.TerminalBuilder;
 import com.kodedu.terminalfx.TerminalTab;
-import com.kodedu.terminalfx.config.TerminalConfig;
+import com.kodedu.terminalfx.config.TerminalConfig; */
 
 import org.springframework.stereotype.Controller;
 
@@ -29,7 +29,13 @@ public class MenuAdminController implements Initializable {
     @FXML
     private JFXButton processBtn;
 
-    private Terminal terminal;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    
+        
+    }
+
+    /* private Terminal terminal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,6 +71,6 @@ public class MenuAdminController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    } */
 
 }

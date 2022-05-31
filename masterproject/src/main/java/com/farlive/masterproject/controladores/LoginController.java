@@ -1,11 +1,16 @@
 package com.farlive.masterproject.controladores;
 
-import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.farlive.masterproject.APIRESTful.repositories.CustomerRepository;
 import com.farlive.masterproject.config.Views;
-import com.farlive.masterproject.service.ClienteService;
+import com.farlive.masterproject.entidades.Customer;
+import com.farlive.masterproject.entidades.RoleType;
+import com.farlive.masterproject.entidades.User;
+import com.farlive.masterproject.service.service.CustomerService;
+import com.farlive.masterproject.service.service.UserService;
 import com.kwms.core.alert.Alert;
 import com.kwms.core.managent.SceneManagent;
 import com.kwms.core.validation.FieldValidator;
@@ -22,7 +27,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.stage.DirectoryChooser;
 
 @Controller
 public class LoginController implements Initializable {
@@ -52,34 +56,43 @@ public class LoginController implements Initializable {
     private TextField username;
 
     @Autowired
-    private ClienteService clienteService;
+    private UserService userService;
+
+    @Autowired
+    private CustomerService customerService;
 
     private SceneManagent sceneManagent;
+    private Customer customer;
 
     @FXML
     void loginAction(ActionEvent event) {
         if(!FieldValidator.areEmpty(true, username, password)) {
-            if(!clienteService.findByUsuario(username.getText()))
+            User user = userService.findByUsername(username.getText());
+            if(user == null)
                 Alert.warning("El usuario no existe", "Crea una nueva cuenta!!!");
             else {
-                if(clienteService.existeUsuario(username.getText(), password.getText())) {
-                    sceneManagent.changeScene(Views.MENU);
-                }else Alert.error("Contraseña incorrecta", "Verifique su contraseña o cambiela si es que la olvido");
+                if(user.getRole().getName().equals(RoleType.ADMIN.toString())) {
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"cmd.exe", "/c", "start"});
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    customer = customerService.findByUser(user.getUsername());
+                    sceneManagent.getController(Views.MENU, MenuController.class).initilizeCards();
+                    sceneManagent.changeScene(Views.MENU);    
+                }
             }
         }
-    }
-
-    private String rutaGuardarPDF() {
-        DirectoryChooser directorio = new DirectoryChooser();
-        File file = directorio.showDialog(SceneManagent.getInstance().getStage());
-        if(file == null)
-            return null;
-        return file.isDirectory() ? file.getAbsolutePath() : null;
     }
 
     @FXML
     void switchCreate(MouseEvent event) {
         sceneManagent.changeScene(Views.SIGNUP);
+    }
+
+    protected Customer getCustomerLoggedIn() {
+        return customer;
     }
 
     @Override

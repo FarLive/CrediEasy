@@ -1,6 +1,6 @@
 package com.farlive.masterproject.bean;
 
-import com.kwms.core.managent.SceneManagent;
+import com.farlive.masterproject.util.ServiceConsumer;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -12,6 +12,11 @@ public class Beans {
     @Bean
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
+    }
+
+    @Bean
+    public ServiceConsumer consumer() {
+        return new ServiceConsumer();
     }
 
 }

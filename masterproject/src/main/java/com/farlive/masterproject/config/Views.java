@@ -67,6 +67,20 @@ public enum Views implements Fxml{
             return "Tarjeta de credito";
         }
         
+    }, 
+
+    SETTINGS {
+
+        @Override
+        public String getPath() {
+            return "/fxml/Settings.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Configuracion";
+        }
+
     };
 
     @Override

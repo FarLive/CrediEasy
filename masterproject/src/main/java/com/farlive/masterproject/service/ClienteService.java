@@ -5,7 +5,8 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
-import com.farlive.masterproject.entidades.Cliente;
+import com.farlive.masterproject.entidades.Customer;
+import com.farlive.masterproject.entidades.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,23 +23,23 @@ public class ClienteService {
     @Autowired
     private RestTemplate restTemplate;
     
-    public List<Cliente> getAllCustomers(){
-        Cliente[] customers =
-            restTemplate.getForObject(baseUrl, Cliente[].class);
+    public List<Customer> getAllCustomers(){
+        Customer[] customers =
+            restTemplate.getForObject(baseUrl, Customer[].class);
         return Arrays.asList(customers);
     }
 
     public boolean existeUsuario(String username, String password) {
-        for(Cliente cliente: getAllCustomers()){
-            if(cliente.getUsuario().equals(username) && cliente.getContrasena().equals(password)){
+        for(Customer cliente: getAllCustomers()){
+            User user = cliente.getPerson().getUser();
+            if(user.getEmail().equals(username) && user.getPassword().equals(password)){
                 return true;
             }     
         }
         return false;
     }
 
-    public boolean save(Cliente cliente) {
-        System.out.println("ClienteService.save() = " + cliente);
+    public boolean save(Customer cliente) {
         ResponseEntity<String> response;
         try {
             response = restTemplate.postForEntity(new URI(baseUrl), cliente, String.class);
@@ -50,6 +51,6 @@ public class ClienteService {
     }
 
     public boolean findByUsuario(String usuario) {
-        return getAllCustomers().stream().anyMatch(customer -> customer.getUsuario().equals(usuario));
+        return getAllCustomers().stream().anyMatch(customer -> customer.getPerson().getUser().getEmail().equals(usuario));
     }
 }

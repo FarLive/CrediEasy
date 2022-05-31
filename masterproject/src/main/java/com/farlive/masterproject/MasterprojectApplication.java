@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MasterprojectApplication {
 	
 	public static void main(String[] args) {
-		Launcher.launch(Launcher.class, args);	
-		//SpringApplication.run(MasterprojectApplication.class, args);
-	}
-	
+		Launcher.launch(Launcher.class, args);
+	}	
 }

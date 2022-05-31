@@ -1,16 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<StackPane fx:id="root" maxHeight="320.0" maxWidth="250.0" minHeight="320.0" minWidth="250.0" prefHeight="320.0" prefWidth="250.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.farlive.masterproject.controladores.TooltipController">
+<StackPane fx:id="root" maxHeight="320.0" maxWidth="250.0" minHeight="320.0" minWidth="250.0" prefHeight="320.0" prefWidth="250.0" style="-fx-background-color: rgba(255, 255, 255, 0.85);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.farlive.masterproject.controladores.TooltipController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/login.jpg" />
-         </image>
-      </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Beneficios de la tarjeta clasica">
+                     <font>
+                        <Font name="Candara" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="250.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <MaterialDesignIconView fill="#34a441" glyphName="CHECK_CIRCLE" size="14" />
+                  <Text fx:id="fBenefit" strokeType="OUTSIDE" strokeWidth="0.0" text="Banca en línea">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Candara" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="26.0" prefHeight="42.0" prefWidth="250.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <MaterialDesignIconView fill="#34a441" glyphName="CHECK_CIRCLE" size="14" />
+                  <Text fx:id="sBenefit" strokeType="OUTSIDE" strokeWidth="0.0" text="Efectivo inmediato">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Candara" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="68.0" prefHeight="42.0" prefWidth="250.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <MaterialDesignIconView fill="#34a441" glyphName="CHECK_CIRCLE" size="14" />
+                  <Text fx:id="tBenefit" strokeType="OUTSIDE" strokeWidth="0.0" text="Credito tipo 1">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Candara" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="111.0" prefHeight="42.0" prefWidth="250.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <MaterialDesignIconView fill="#34a441" glyphName="CHECK_CIRCLE" size="14" />
+                  <Text fx:id="foBenefit" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasa de interés fija">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Candara" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="250.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <MaterialDesignIconView fill="#34a441" glyphName="CHECK_CIRCLE" size="14" />
+                  <Text fx:id="fiBenefit" strokeType="OUTSIDE" strokeWidth="0.0" text="Anualidades bajas">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Candara" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="262.0" prefHeight="42.0" prefWidth="250.0">
+               <children>
+                  <JFXButton fx:id="hireBtn" buttonType="RAISED" style="-fx-background-color: #34a441;" text="Contratar" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </StackPane.margin></VBox>
    </children>
 </StackPane>
