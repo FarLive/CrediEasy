@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
-import javax.swing.text.View;
-
 import com.farlive.masterproject.config.Views;
 import com.jfoenix.controls.JFXButton;
 import com.kwms.core.managent.SceneManagent;

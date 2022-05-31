@@ -4,7 +4,6 @@ import com.farlive.masterproject.config.Views;
 import com.kwms.core.managent.Fxml;
 import com.kwms.core.managent.Loader;
 import com.kwms.core.managent.SceneManagent;
-import com.kwms.core.threadpool.Executor;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -46,7 +45,7 @@ public class Launcher extends Application {
     @Override
     public void stop() {
         ctx.close();
-        Executor.getInstance().shutdownNow();
         Platform.exit();
+
     }
 }

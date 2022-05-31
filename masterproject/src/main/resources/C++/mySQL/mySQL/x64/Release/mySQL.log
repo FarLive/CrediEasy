@@ -1,0 +1,9 @@
+﻿  mySQL.cpp
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,8): error C2678: '!' binario: no se encontró un operador que adopte un operando en la parte izquierda de tipo 'std::string' (o bien no existe una conversión aceptable)
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,8): message : puede ser 'built-in C++ operator!(bool)'
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,8): message : al hacer coincidir la lista de argumentos '(std::string)'
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,9): error C2088: '!': no es válido para class
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,23): error C2678: '!' binario: no se encontró un operador que adopte un operando en la parte izquierda de tipo 'std::string' (o bien no existe una conversión aceptable)
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,23): message : puede ser 'built-in C++ operator!(bool)'
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,23): message : al hacer coincidir la lista de argumentos '(std::string)'
+C:\Users\FarLive\Desktop\mysql_C++\mySQL\mySQL\mySQL.cpp(16,18): error C2088: '!': no es válido para class
