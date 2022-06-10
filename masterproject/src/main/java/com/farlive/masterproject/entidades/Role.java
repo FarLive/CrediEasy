@@ -1,35 +1,31 @@
 package com.farlive.masterproject.entidades;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "admins")
-public class Admin {
-    
+@Table(name = "roles")
+public class Role  {
+
     @Id
-    @Column
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_person")
-    private Person person;
+    @Column(nullable = false)
+    private String name;
 
 
-    public Admin(int id, Person person) {
+    public Role(int id, String name) {
         this.id = id;
-        this.person = person;
+        this.name = name;
     }
 
-    public Admin() {
+    public Role() {
     }
 
     public int getId() {
@@ -40,12 +36,12 @@ public class Admin {
         this.id = id;
     }
 
-    public Person getPerson() {
-        return this.person;
+    public String getName() {
+        return this.name;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

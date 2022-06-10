@@ -1,70 +1,17 @@
 package com.farlive.masterproject.controladores;
 
-import java.net.URI;
-import java.net.URL;
-import java.nio.file.Path;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
-import com.jfoenix.controls.JFXButton;
-import com.kodedu.terminalfx.Terminal;
-import com.kodedu.terminalfx.TerminalBuilder;
-import com.kodedu.terminalfx.TerminalTab;
-import com.kodedu.terminalfx.config.TerminalConfig;
+import com.kwms.core.alert.Alert;
 
-import org.springframework.stereotype.Controller;
+public class MenuAdminController {
 
-import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TabPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-
-@Controller
-public class MenuAdminController implements Initializable {
-
-    @FXML
-    private StackPane consolePane;
-
-    @FXML
-    private JFXButton processBtn;
-
-    private Terminal terminal;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(() -> createConsole());
-        processBtn.setOnMouseClicked(e -> {
-            processBtn.setDisable(true);
-            terminal.command("mySQL.exe");
-            //GlassRobot robot = com.sun.glass.ui.Application.GetApplication().createRobot();
-            // robot.mouseMove(robot.getMouseX(), 200);
-            // robot.mousePress(MouseButton.PRIMARY);
-            //robot.keyPress(KeyCode.ENTER);
-        });
-    }
-
-    private void createConsole() {
-        try {
-            TerminalConfig darkConfig = new TerminalConfig();
-            darkConfig.setBackgroundColor(Color.rgb(16, 16, 16));
-            darkConfig.setForegroundColor(Color.rgb(0, 140, 15));
-            darkConfig.setCursorColor(Color.rgb(255, 255, 255, 0.5));
-            darkConfig.setFontFamily("Consolas");
-
-            TerminalBuilder terminalBuilder = new TerminalBuilder(darkConfig);
-
-            URI uri = MenuAdminController.class.getResource("/C++").toURI();
-            terminalBuilder.setTerminalPath(Path.of(uri));
-            TerminalTab terminal = terminalBuilder.newTerminal();
-            this.terminal = terminal.getTerminal();
-
-            TabPane tabPane = new TabPane();
-            tabPane.getTabs().add(terminal);
-            consolePane.getChildren().add(tabPane);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void launchConsole() throws URISyntaxException, IOException {
+        String url = Paths.get(MenuAdminController.class.getResource("/python").toURI()).toFile().getAbsolutePath();
+        System.out.println(url);
+        Runtime.getRuntime().exec("cmd /c start cmd.exe /K \"cd " + url + " && python Banco.py\"");
     }
 
 }

@@ -6,14 +6,11 @@ import java.util.ResourceBundle;
 import com.farlive.masterproject.config.Views;
 import com.farlive.masterproject.entidades.Customer;
 import com.farlive.masterproject.entidades.Person;
-import com.farlive.masterproject.entidades.Role;
-import com.farlive.masterproject.entidades.RoleType;
 import com.farlive.masterproject.entidades.User;
 import com.farlive.masterproject.service.service.CustomerService;
 import com.jfoenix.controls.JFXTextField;
 import com.kwms.core.alert.Alert;
 import com.kwms.core.managent.SceneManagent;
-import com.kwms.core.validation.FieldValidator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +18,11 @@ import org.springframework.stereotype.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 @Controller
-public class SignUpController implements Initializable{
-    
+public class SettingsController implements Initializable {
+
     @FXML
     private AnchorPane registerClientPane;
 
@@ -51,41 +47,49 @@ public class SignUpController implements Initializable{
     @Autowired
     private CustomerService customerService;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-           
-    }
+    private Customer customer;
 
     @FXML
     private void createNewAccount(ActionEvent event) {
-        if(!FieldValidator.areEmpty(true, fullNameField, userNameField, emailField, passwordField, phoneField, addressField)) {
-            String message = customerService.save(newCustomer()) ? "Ahora puede usar sus credenciales para ingresar al sistema."
-                                                                 : "Algo salio mal, no se ha podido registrar su cuenta, vuelva a intentarlo";
-            Alert.info("Informacion sobre el registro", message, e -> switchCreate(e));     
+        Person person = customer.getPerson();
+        person.setName(fullNameField.getText());
+        person.setAddress(addressField.getText());
+        person.setPhone(phoneField.getText());
+        User user = customer.getPerson().getUser();
+        user.setUsername(userNameField.getText());
+        user.setEmail(emailField.getText());
+        user.setPassword(passwordField.getText());
+        person.setUser(user);
+        customer.setPerson(person);
+        if(customerService.save(customer)) {
+            Alert.success("Completado", "Sus datos han sido actualizados correctamente");
+            SceneManagent.getInstance().getModalStage().close();
+        }else {
+            Alert.error("Oh no!", "Ha ocurrido un error al actualizar su informacion");
         }
     }
 
     @FXML
-    private void switchCreate(MouseEvent event) {
+    private void deleteAccount(ActionEvent event) {
+        customerService.remove(customer);
+        SceneManagent.getInstance().getModalStage().close();
         SceneManagent.getInstance().changeScene(Views.LOGIN);
     }
 
-    private Customer newCustomer() {
-        Customer customer = new Customer();
-        Person person = new Person();
-        person.setId(0);
-        person.setName(fullNameField.getText());
-        person.setAddress(addressField.getText());
-        person.setPhone(phoneField.getText());
-        User user = new User();
-        user.setId(0);
-        user.setUsername(userNameField.getText());
-        user.setEmail(emailField.getText());
-        user.setPassword(passwordField.getText());
-        user.setRole(new Role(0, RoleType.CUSTOMER.name()));
-        person.setUser(user);
-        customer.setPerson(person);
-        customer.setCreditcards(null);
-        return customer;
+    protected void putInfoCustomer(Customer customer) {
+        this.customer = customer;
+        Person person = customer.getPerson();
+        fullNameField.setText(person.getName());
+        userNameField.setText(person.getUser().getUsername());
+        emailField.setText(person.getUser().getEmail());
+        passwordField.setText(person.getUser().getPassword());
+        phoneField.setText(person.getPhone());
+        addressField.setText(person.getAddress());
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+   
 }
