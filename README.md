@@ -1,1 +1,1 @@
-# MasterCardProject
+# CrediEasy
